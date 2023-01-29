@@ -16,7 +16,7 @@ class FirstController extends AbstractController
         // Chercher au niveau de la BDD nos users
         return $this->render('first/index.html.twig', [
             'name' => 'boutry',
-            'firstname' => 'kevin'
+            'firstname' => 'kevin'            
         ]);
     }
     
@@ -26,7 +26,8 @@ class FirstController extends AbstractController
         // dd($request);
         return $this->render('first/hello.html.twig',[
             'nom' => $name,
-            'prenom' => $firstname
+            'prenom' => $firstname,
+            'path' => '    '
         ]);
     }
     
