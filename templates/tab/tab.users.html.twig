@@ -1,26 +1,36 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}">
-    <title>Document</title>
- </head>
- <body>
+{% extends "template.html.twig" %}
+
+{% block title %}
+    Table des users
+{% endblock %}
+
+{% block PageTitle %}
+    Liste des users
+{% endblock %}
+
+{% block body %}
+
+{{ include ('fragments/date-jour.html.twig') }}
+ 
+    <div class="alert alert-warning">
+        <a href="{{ path('app_tab', {nb : 7}) }}">Stats Table</a>
+    </div>
     <table class="table">
         <tr class="table-active">
             <td>Firstname</td>
             <td>Name</td>
             <td>Age</td>
+            <td>Message</td>
         </tr>
         {% for u in users %}       
         <tr  {% if loop.index is odd %} class="table-info" {% endif %}>
             <td>{{ u.firstname }}</td>
             <td>{{ u.name }}</td>
             <td>{{ u.age }}</td>
+            <td>
+                {{ render(controller('App\\Controller\\FirstController::sayHello', {firstname: u.firstname, name: u.name} )) }}
+            </td>
         </tr>
         {% endfor %}
     </table>
- </body>
- </html>
+{% endblock %}

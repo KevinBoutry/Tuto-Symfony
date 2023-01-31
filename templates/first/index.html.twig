@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ name }} {{ firstname }} </title>
-</head>
-<body>
+{% extends "template.html.twig" %}
+
+{% block title %}
+    First Page
+{% endblock %}
+
+{% block PageTitle %}
+    First Page
+{% endblock %}
+
+{% block body %}
     <div>
         <h1>Blabla {{ name }} {{ firstname }} </h1>
         <p>Bonjour</p>
+        Je veux aller sur cette url absolue : {{ url("app_first") }}
     </div>
-</body>
-</html>
+{% endblock %}
